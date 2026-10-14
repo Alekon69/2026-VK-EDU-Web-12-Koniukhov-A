@@ -1,0 +1,246 @@
+/* * {                          если без bootstrap
+    margin: 0;
+    box-sizing: border-box;
+} */
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.page-header {
+    background-color: #0cbaff7a;
+    padding: 20px 20px;
+}
+
+.page-header h1 {
+    margin: 0;
+}
+
+.header-search button, .header-ask button, .ask-question button {
+    border: 2px solid black;
+    background: rgb(3, 193, 3);
+    color: white;
+    box-shadow: black;
+    -webkit-box-shadow: 3px 3px 3px 1px #000000; 
+    box-shadow: 3px 3px 3px 1px #000000;
+    cursor: pointer;
+}
+
+.header-search button:hover, .header-ask button:hover, .ask-question button:hover {
+    background: rgb(5, 240, 5);
+    box-shadow: 2px 2px 2px 1px #000000;
+}
+
+input[type='search']{
+    border: 2px solid black;
+    border-radius: 14px;
+    padding-left: 20px;
+    outline: none;
+}
+
+input[type='search']:focus, input[type='search']:focus-visible {
+    border: 2px solid rgb(154, 150, 190);
+}
+
+
+.user-authorized {
+    display: flex;
+}
+
+/* 
+.user-guest {
+    display: none;
+} */
+
+.header-user-avatar {
+    padding: 10px 10px;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.page-content {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+
+.popular-tags, .best-members {
+    padding: 20px 0px;
+    display: flex;
+    flex-direction: column;
+}
+
+.popular-tags a, .best-members a {
+    padding: 2px 0px;;
+}
+
+footer {
+    margin-top: auto;
+    margin-left: 10px;
+}
+
+.cards {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.questions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    gap: 40px;
+}
+
+.question-card {
+    display: flex;
+    gap: 30px;
+    border: 2px solid black;
+    border-radius: 15px;
+    max-width: 590px;
+    max-height: 160px;
+    padding: 10px;
+}
+
+.question-left {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+.question-avatar {
+    width: 60px;
+    height: 60px;
+}
+
+.question-body {
+    flex:1;
+}
+
+.question-meta {
+    display: flex;
+    gap: 50px;
+    padding-top: 5px;
+}
+
+.question-tags {
+    display: flex;
+    gap: 5px;
+}
+
+.rating {
+    display: flex;
+    /* flex-direction: column; */
+    align-items: center;
+    padding-left: 3px;
+    border: 1px #000000 solid;
+    gap: 10px;
+
+}
+
+.arrows {
+    margin-bottom: auto;
+    border-left: 1px #000000 solid ;
+}
+
+.pagination {
+    padding-top: 20px;
+}
+
+.title-of-new-question, .text-of-new-question, .tags-of-new-question {
+    display: flex;
+    justify-content: space-between;
+    width: 450px;
+    margin-bottom: 10px;
+}
+
+.text-of-title-of-new-question, .text-of-tags-of-new-question {
+    border: black 3px solid;
+    height: 30px;
+    width: 300px;
+    padding-left: 4px;
+}
+
+.text-of-text-of-new-question {
+    border: black 3px solid;
+    height: 250px;
+    width: 300px;
+    padding-left: 4px;
+}
+
+.ask-question {
+    padding-left: 190px;
+    padding-top: 30px;
+}
+
+.main-question {
+    display: flex;
+    gap: 50px;
+    border-bottom: #000000 solid 3px;
+}
+
+.left-part-of-main-question {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    align-items:flex-start;
+}
+
+.left-part-of-main-question img {
+    width: 90px;
+    height: 90px;
+}
+
+.body-of-main-question {
+    display: flex;
+    flex-direction: column;
+    max-width: 450px;
+    gap: 10px;
+}
+
+.correctness {
+    padding-left: 30px;
+}
+
+.answers {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.question-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding-bottom: 10px;
+    border-bottom: #000000 solid 3px;
+}
+
+.enter-answer {
+    border: #000000 3px solid;
+    height: 120px;
+}
+
+.ask-question button, .answer-question button {
+    border: 2px solid black;
+    background: rgb(241, 239, 239);
+    color: rgb(0, 0, 0);
+    box-shadow: black;
+    -webkit-box-shadow: 3px 3px 3px 1px #000000; 
+    box-shadow: 3px 3px 3px 1px #000000;
+    cursor: pointer;
+}
+
+.ask-question button:hover, .answer-question button:hover {
+    background: rgb(181, 183, 181);
+    box-shadow: 2px 2px 2px 1px #000000;
+}
