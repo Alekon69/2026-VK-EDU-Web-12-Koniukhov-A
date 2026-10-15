@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Ask Me</title>
+    <title>Ask Me - New Question</title>
+    <link rel="icon" type="image/png" href="static/img/favicon.png">
     <link rel="stylesheet" href="static/css/bootstrap.min.css">
     <link rel="stylesheet" href="static/css/style.css">
     <meta charset="UTF-8">
@@ -9,7 +10,7 @@
 </head>
 <body>
     <header class="page-header">
-        <a href="/">
+        <a href="index.html">
             <h1>Ask Me</h1>
         </a>
         <div class="header-search">
@@ -17,41 +18,40 @@
                 <button>Поиск</button>
         </div>
         <div class="header-ask">
-            <button>Задать вопрос</button>
+            <a href = "ask.html">
+                <button>Задать вопрос</button>
+            </a>
         </div>
-        <div class="user-authorized">
-            <img class="header-user-avatar" src="/HW/public/static/img/ava.img" alt="Аватар">
-            <div class="header-user-actions">
-                <span>User_name</span>
-                <div>
-                    <a href="">settings</a>
-                    <a href="">log out</a>
-                </div>
-            </div>
+        <div class="user-guest">
+            <a href="">log in</a>
+            <a href="">register</a>
         </div>
-        <!-- <div class="user-guest">
-            <div>
-                <a href="">log in</a>
-                <a href="">register</a>
-            </div>
-            </div>
-        </div> -->
     </header>
     <div class="page-content">
     <main>
         <h2 style="padding: 6px 0px;">New Question</h2>
+        <p class="form-error">
+            Question was not created. Check the fields below.
+        </p>
         <div class="title-of-new-question">
             Title
             <p class="text-of-title-of-new-question">How to build a moon park?</p>
         </div>
+        <p class="form-hint">
+            Maximum 100 characters
+        </p>
         <div class="text-of-new-question">
             Text
             <p class="text-of-text-of-new-question">Really, how? Have no idea about it</p>
         </div>
+        <p class="form-hint">
+            Maximum 1000 characters
+        </p>
         <div class="tags-of-new-question">
             Tags
             <p class="text-of-tags-of-new-question">moon, park, puzzle</p>
         </div>
+        <span class="form-hint">Maximum 3 tags</span>
         <div class="ask-question">
             <button>Отправить вопрос</button>
         </div>

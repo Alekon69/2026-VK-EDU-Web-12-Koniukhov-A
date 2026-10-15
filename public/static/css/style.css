@@ -1,7 +1,6 @@
-/* * {                          если без bootstrap
-    margin: 0;
-    box-sizing: border-box;
-} */
+/* 
+        FOR BASE.HTML
+*/
 
 header {
     display: flex;
@@ -49,14 +48,19 @@ input[type='search']:focus, input[type='search']:focus-visible {
     display: flex;
 }
 
-/* 
+
 .user-guest {
-    display: none;
-} */
+    display: flex;
+    gap: 15px;
+}
 
 .header-user-avatar {
     padding: 10px 10px;
 }
+
+/* 
+        FOR PAGE INDEX.HTML
+*/
 
 body {
     min-height: 100vh;
@@ -115,15 +119,12 @@ footer {
     flex-direction: column;
     align-items: center;
     gap: 15px;
+    margin-top: auto;
 }
 
 .question-avatar {
     width: 60px;
     height: 60px;
-}
-
-.question-body {
-    flex:1;
 }
 
 .question-meta {
@@ -139,28 +140,45 @@ footer {
 
 .rating {
     display: flex;
-    /* flex-direction: column; */
-    align-items: center;
     padding-left: 3px;
     border: 1px #000000 solid;
     gap: 10px;
-
 }
 
 .arrows {
-    margin-bottom: auto;
+    display: flex;
+    gap: 5px;
     border-left: 1px #000000 solid ;
+    padding-left: 5px;
+    padding-right: 3px;
+}
+
+.rating-liked .like-arrow {
+    color: green;
+    font-weight:bold;
+}
+
+.rating-disliked .dislike-arrow {
+    color: red;
+    font-weight: bold;
 }
 
 .pagination {
-    padding-top: 20px;
+    padding-top: 12px;
+}
+
+/* 
+        FOR PAGE ASK.HTML
+*/
+
+.form-error {
+    color: red;
 }
 
 .title-of-new-question, .text-of-new-question, .tags-of-new-question {
     display: flex;
     justify-content: space-between;
     width: 450px;
-    margin-bottom: 10px;
 }
 
 .text-of-title-of-new-question, .text-of-tags-of-new-question {
@@ -182,6 +200,17 @@ footer {
     padding-top: 30px;
 }
 
+.form-hint {
+    margin-left: 150px;
+    font-size: 13px;
+    color: gray;
+    margin-bottom: 30px;
+}
+
+/* 
+        FOR PAGE QUESTION.HTML
+*/
+
 .main-question {
     display: flex;
     gap: 50px;
@@ -191,7 +220,7 @@ footer {
 .left-part-of-main-question {
     display: flex;
     flex-direction: column;
-    gap: 30px;
+    gap: 70px;
     align-items:flex-start;
 }
 
@@ -207,14 +236,23 @@ footer {
     gap: 10px;
 }
 
+.main-question-meta {
+    display: flex;
+    gap: 200px;
+}
+
 .correctness {
     padding-left: 30px;
+}
+
+.answer-time {
+    padding-left: 200px;
 }
 
 .answers {
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 10px;
 }
 
 .question-cards {
@@ -230,7 +268,7 @@ footer {
     height: 120px;
 }
 
-.ask-question button, .answer-question button {
+.ask-question button, .answer-question button, .login-button, .register-button, .save-button {
     border: 2px solid black;
     background: rgb(241, 239, 239);
     color: rgb(0, 0, 0);
@@ -240,7 +278,65 @@ footer {
     cursor: pointer;
 }
 
-.ask-question button:hover, .answer-question button:hover {
+.ask-question button:hover, .answer-question button:hover, .login-button:hover, .register-button:hover, .save-button:hover {
     background: rgb(181, 183, 181);
     box-shadow: 2px 2px 2px 1px #000000;
+}
+
+
+/* 
+        FOR PAGE LOGIN.HTML, SIGNUP.HTML AND PROFILE.HTML
+*/
+
+.login-page, .signup-page, .profile-page {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.rows {
+    display: flex;
+}
+
+.form-label {
+    width: 150px;
+}
+
+.login-border {
+    border: #000000 3px solid;
+    width: 220px;
+    padding-left: 3px;
+}
+
+.login-button, .register-button, .save-button {
+    margin-top: 8px;
+    width: 100px;
+    margin-left: 150px;
+}
+
+.login-page a, .choose-avatar {
+    margin-top: 8px;
+    width: 200px;
+    margin-left: 150px;
+}
+
+.avatar-path {
+    border: #000000 3px solid;
+    padding-left: 3px;
+    width: 120px;
+}
+
+.choose-avatar {
+    display: flex;
+    width: 220px;
+    justify-content:space-between;
+}
+
+.choose-button {
+    width: 70px;
+}
+
+.profile-avatar {
+    width: 120px;
+    height: 120px;
 }
