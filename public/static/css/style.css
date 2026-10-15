@@ -509,5 +509,13 @@ footer {
         width: 100%;
         max-width: 100%;
         box-sizing: border-box;
-}
+    }
+    
+    .correctness {
+    padding-left: 0;
+    }
+
+    .answer-time {
+        padding-left: 10px;
+    }
 }
