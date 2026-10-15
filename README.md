@@ -15,3 +15,6 @@ public/index.html
 - index.html — список вопросов
 - question.html — страница отдельного вопроса
 - ask.html — страница создания вопроса
+- login.html — страница входа
+- signup.html — страница регистрации
+- profile.html — настройки профиля

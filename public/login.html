@@ -18,13 +18,14 @@
                 <button>Поиск</button>
         </div>
         <div class="header-ask">
-            <button>Задать вопрос</button>
+            <a href = "ask.html">
+                <button>Задать вопрос</button>
+            </a>
         </div>
         <div class="user-guest">
             <div>
-                <a href="">log in</a>
-                <a href="">register</a>
-            </div>
+                <a href="login.html">log in</a>
+                <a href="signup.html">register</a>
             </div>
         </div>
     </header>
@@ -37,12 +38,18 @@
                 <span class="form-label">Login</span>
                 <span class="login-border">Enter your login here</span>
             </div>
+            <span class="form-hint">
+                Enter the login used during registration
+            </span>
             <div class="rows">
                 <span class="form-label">Password</span>
                 <span class="login-border">*************</span>
             </div>
+            <span class="field-error">
+                Incorrect password
+            </span>
             <button class="login-button">Log in!</button>
-            <a href="/">create new account</a>
+            <a href="signup.html">create new account</a>
         </div>
     </main>
     <aside>
