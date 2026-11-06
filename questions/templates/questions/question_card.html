@@ -1,0 +1,32 @@
+{% load static %}
+
+<div class="question-card">
+                <div class="question-left">
+                    <img class="question-avatar" src="{% static 'img/avatar.png' %}" alt="Аватар">
+                    <div class="rating rating-{{ question.rating_state }}">
+                        <span class="rating-value">{{ question.rating }}</span>
+                        <div class="arrows">
+                            <span class="like-arrow">↑</span>
+                            <span class="dislike-arrow">↓</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="question-body">
+                    <h4>
+                        <a href="{% url 'question' question.id %}">{{ question.title }}</a>
+                    </h4>
+                    <p>{{ question.text }}</p>
+                    <div class="question-meta">
+                        <a href="{% url 'question' question.id %}">
+                            answer ({{ question.answers_count }})
+                        </a>
+                        <p class="question-tags">
+                            Tags:
+                            {% for tag in question.tags %}
+                                <a href="{% url 'tag' tag %}">{{ tag }}</a>
+                            {% endfor %}
+                        </p> 
+                        <span class="question-time">{{ question.time }}</span>
+                    </div>
+                </div>
+            </div>
