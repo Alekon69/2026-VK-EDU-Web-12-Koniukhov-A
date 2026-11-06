@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="ask-page">
+        <h2 style="padding: 6px 0px;">New Question</h2>
+        <p class="form-error">
+            Question was not created. Check the fields below.
+        </p>
+        <div class="title-of-new-question">
+            Title
+            <p class="text-of-title-of-new-question">How to build a moon park?</p>
+        </div>
+        <span class="field-error">
+            Title is too short
+        </span>
+        <p class="form-hint">
+            Maximum 100 characters
+        </p>
+        <div class="text-of-new-question">
+            Text
+            <p class="text-of-text-of-new-question">Really, how? Have no idea about it</p>
+        </div>
+        <p class="form-hint">
+            Maximum 1000 characters
+        </p>
+        <div class="tags-of-new-question">
+            Tags
+            <p class="text-of-tags-of-new-question">moon, park, puzzle</p>
+        </div>
+        <span class="form-hint">Maximum 3 tags</span>
+        <div class="ask-question">
+            <button>Отправить вопрос</button>
+        </div>
+    </div>
+{% endblock %}
+    

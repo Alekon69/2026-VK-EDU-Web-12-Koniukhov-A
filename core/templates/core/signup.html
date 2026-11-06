@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+        <div class="signup-page">
+            <h2>Registration</h2>
+            <span class="form-error">Sorry, this email address already registred</span>
+            <div class="rows">
+                <span class="form-label">Login</span>
+                <span class="login-border">user_name</span>
+            </div>
+            <div class="rows">
+                <span class="form-label">Email</span>
+                <span class="login-border">user_email</span>
+            </div>
+            <span class="field-error">
+                Invalid email
+            </span>
+            <div class="rows">
+                <span class="form-label">NickName</span>
+                <span class="login-border">user_nick</span>
+            </div>
+            <div class="rows" style="margin-top: 10px;">
+                <span class="form-label">Password</span>
+                <span class="login-border">*************</span>
+            </div>
+            <span class="form-hint">
+                Minimum 8 characters
+            </span>
+            <div class="rows">
+                <span class="form-label">Repeat password</span>
+                <span class="login-border">*************</span>
+            </div>
+            <div class="rows">
+                <span class="form-label">Upload avatar</span>
+                <div class="choose-avatar">
+                    <span class="avatar-path">c:\avatar.jpg</span>
+                    <button class="choose-button">choose</button>
+                </div>
+            </div>
+            <button class="register-button">Register!</button>
+        </div>
+
+{% endblock %}
+    

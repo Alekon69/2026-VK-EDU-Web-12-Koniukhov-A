@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+        <div class="login-page">
+            <h2>Log In</h2>
+            <span class="form-error">Sorry, wrong password!</span>
+            <div class="rows">
+                <span class="form-label">Login</span>
+                <span class="login-border">Enter your login here</span>
+            </div>
+            <span class="form-hint">
+                Enter the login used during registration
+            </span>
+            <div class="rows">
+                <span class="form-label">Password</span>
+                <span class="login-border">*************</span>
+            </div>
+            <span class="field-error">
+                Incorrect password
+            </span>
+            <button class="login-button">Log in!</button>
+            <a href="{% url 'signup' %}">create new account</a>
+        </div>
+    
+{% endblock %}

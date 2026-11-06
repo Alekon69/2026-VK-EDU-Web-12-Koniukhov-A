@@ -17,6 +17,13 @@ header {
     margin: 0;
 }
 
+.site-logo,
+.site-logo:visited,
+.site-logo:hover {
+    color: black;
+    text-decoration: none;
+}
+
 .header-search button, .header-ask button, .ask-question button {
     border: 2px solid black;
     background: rgb(3, 193, 3);
@@ -66,6 +73,9 @@ main {
 
 .question-body {
     min-width: 0;
+    overflow-wrap: anywhere;
+    display: flex;
+    flex-direction: column;
 }
 
 /* 
@@ -106,7 +116,8 @@ footer {
     gap: 15px;
     width: 100%;
     max-width: 590px;
-    margin: 0 auto
+    margin: 0 auto;
+    min-height: 350px
 }
 
 .questions {
@@ -125,8 +136,8 @@ footer {
     gap: 30px;
     border: 2px solid black;
     border-radius: 15px;
+    width: 100%;
     max-width: 590px;
-    max-height: 160px;
     padding: 10px;
 }
 
@@ -189,6 +200,12 @@ footer {
 /* 
         FOR PAGE ASK.HTML
 */
+
+.ask-page {
+    width: 100%;
+    max-width: 450px;
+    margin: 0 auto;
+}
 
 .form-error {
     display: block;
@@ -253,7 +270,7 @@ footer {
 .left-part-of-main-question {
     display: flex;
     flex-direction: column;
-    gap: 70px;
+    gap: 15px;
     align-items:flex-start;
 }
 
@@ -276,6 +293,7 @@ footer {
 
 .correctness {
     padding-left: 30px;
+    margin-top: auto;
 }
 
 .answer-time {
@@ -332,6 +350,9 @@ footer {
     display: flex;
     flex-direction: column;
     gap: 15px;
+    width: 100%;
+    max-width: 450px;
+    margin: 0 auto;
 }
 
 .rows {

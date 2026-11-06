@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+        <div class="answers">
+            <div class="main-question">
+                <div class="left-part-of-main-question">
+                    <img src="{% static 'img/avatar.png' %}" alt="avatar">
+                    <div class="rating rating-{{ question.rating_state}}">
+                        <span class="rating-value">{{question.rating}}</span>
+                        <div class="arrows">
+                            <span class="like-arrow">↑</span>
+                            <span class="dislike-arrow">↓</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="body-of-main-question">
+                    <h2>{{ question.title }}</h2>
+                    <span>{{ question.text }}</span>
+                    <div class="main-question-meta">
+                        <span>Answers: {{ question.answers_count }}</span>
+                        <span>{{ question.time }}</span>
+                    </div>
+                    <p class="question-tags">Tags:<a href="/">black-jack</a> <a href="/">bender</a>
+                    </p>
+                </div>
+            </div>
+            <div class="question-cards">
+                {% for answer in answers %}
+                    {% include 'questions/answer_card.html' %}
+                {% empty %}
+                    <p>Пока нет ответов.</p>
+                {% endfor %}
+            </div>
+            {% if page_obj.paginator.num_pages > 1 %}
+                {% include 'questions/pagination.html' %}
+            {% endif %}
+            <div class="enter-answer">
+                <span style="padding-left: 5px;">Enter your answer here..</span>
+            </div>
+            <div class="answer-question">
+                <button>Ответить</button>
+            </div>
+        </div>
+{% endblock %}
