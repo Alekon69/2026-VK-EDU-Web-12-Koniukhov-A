@@ -223,7 +223,7 @@ footer {
 
 .form-hint {
     display: block;
-    margin-left: 150px;
+    margin-left: 0;
     margin-bottom: 30px;
     font-size: 13px;
     color: gray;

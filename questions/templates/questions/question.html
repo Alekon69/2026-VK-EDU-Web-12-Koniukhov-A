@@ -21,7 +21,12 @@
                         <span>Answers: {{ question.answers_count }}</span>
                         <span>{{ question.time }}</span>
                     </div>
-                    <p class="question-tags">Tags:<a href="/">black-jack</a> <a href="/">bender</a>
+                    <p class="question-tags">
+                        Tags:
+                        {% for tag in question.tags %}
+                            <a href="{% url 'tag' tag %}">{{ tag }}</a>
+                        {% endfor %}
+                    </p>
                     </p>
                 </div>
             </div>
