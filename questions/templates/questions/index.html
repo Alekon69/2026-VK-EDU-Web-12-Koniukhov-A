@@ -12,7 +12,7 @@
             {% for question in questions %}
                 {% include 'questions/question_card.html' %}
             {% empty %}
-                <p>There are no questions with this tag</p>
+                <p>Пока нет вопросов.</p>
             {% endfor %}
         </div>
         {% if page_obj.paginator.num_pages > 1 %}

@@ -18,6 +18,7 @@ from django.contrib import admin
 from django.urls import path
 from questions import views
 from core import views as core_views
+from django.conf import settings
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -30,3 +31,7 @@ urlpatterns = [
     path('signup/', core_views.signup_page, name='signup'),
     path('profile/', core_views.profile_page, name='profile'),
 ]
+
+if settings.DEBUG:
+    from debug_toolbar.toolbar import debug_toolbar_urls
+    urlpatterns += debug_toolbar_urls()
