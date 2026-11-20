@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+        {% block questions_header %}
+        <div class="questions">
+            <h2 style="padding: 6px 0;">New Questions</h2> 
+            <a href="{% url 'hot' %}">Hot Questions</a>
+        </div> 
+        {% endblock %}
+        <div class="cards">
+            {% for question in questions %}
+                {% include 'questions/question_card.html' %}
+            {% empty %}
+                <p>There are no questions with this tag</p>
+            {% endfor %}
+        </div>
+        {% if page_obj.paginator.num_pages > 1 %}
+            {% include 'questions/pagination.html' %}
+        {% endif %}
+{% endblock %}
+    

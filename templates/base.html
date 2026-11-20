@@ -1,0 +1,78 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Ask Me</title>
+    <link rel="icon" type="image/png" href="{% static 'img/favicon.png' %}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <header class="page-header">
+        <a class="site-logo" href="{% url 'index' %}">
+            <h1>Ask Me</h1>
+        </a>
+        <div class="header-search">
+                <input type="search" placeholder="Введите вопрос">
+                <button>Поиск</button>
+        </div>
+        <div class="header-ask">
+            <a href="{% url 'ask' %}">
+                <button>Задать вопрос</button>
+            </a>
+        </div>
+    {% if show_authorized_header %}
+        <div class="user-authorized">
+            <img class="header-user-avatar" src="{% static 'img/avatar.png' %}" alt="Аватар">
+            <div class="header-user-actions">
+                <span>User_name</span>
+                <div>
+                    <a href="{% url 'profile' %}">Settings</a>
+                    <span>log out</span>
+                </div>
+            </div>
+        </div>
+    {% else %}
+        <div class="user-guest">
+            <div>
+                <a href="{% url 'login' %}">log in</a>
+                <a href="{% url 'signup' %}">register</a>
+            </div>
+        </div>
+    {% endif %}
+    </header>
+    <div class="page-content">
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+    <aside>
+        <div class="popular-tags">
+            <h2>Popular tags</h2>
+            <a href="{% url 'tag' 'perl' %}">perl</a>
+            <a href="{% url 'tag' 'python' %}">python</a>
+            <a href="{% url 'tag' 'technopark' %}">TechnoPark</a>
+            <a href="{% url 'tag' 'mysql' %}">MySQL</a>
+            <a href="{% url 'tag' 'django' %}">django</a>
+            <a href="{% url 'tag' 'mail-ru' %}">Mail.Ru</a>
+            <a href="{% url 'tag' 'voloshin' %}">Voloshin</a>
+            <a href="{% url 'tag' 'firefox' %}">Firefox</a>
+        </div>
+        <div class="best-members">
+            <h2>Best Members</h2>
+            <a href="/">Mr.Freeman</a>
+            <a href="/">Dr.House</a>
+            <a href="/">Bender</a>
+            <a href="/">Queen Victoria</a>
+            <a href="/">V.Pupkin</a>
+        </div>
+    </aside>
+    </div>
+    <footer>
+        <p>Ask Me © 2026</p>
+    </footer>
+</body>
+</html>
+

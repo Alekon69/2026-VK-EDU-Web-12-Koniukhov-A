@@ -1,0 +1,22 @@
+{% load static %}
+
+<div class="question-card">
+                    <div class="question-left">
+                        <img class="question-avatar" src="{% static 'img/avatar.png' %}" alt="Аватар">
+                        <div class="rating rating-{{answer.rating_state}}">
+                        <span class="rating-value">{{answer.rating}}</span>
+                        <div class="arrows">
+                            <span class="like-arrow">↑</span>
+                            <span class="dislike-arrow">↓</span>
+                        </div>
+                    </div>
+                    </div>
+                    <div class="question-body">
+                        <p>{{answer.text}}</p>
+                        <div class="correctness">
+                            <input type="checkbox" id="checkLabel{{answer.id}}" class="check" {% if answer.is_correct %}checked{% endif %}>
+                            <label for="checkLabel{{answer.id}}">Correct!</label>
+                        <span class="answer-time">{{answer.time}}</span>
+                        </div>
+                    </div>
+                </div>

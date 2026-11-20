@@ -17,6 +17,13 @@ header {
     margin: 0;
 }
 
+.site-logo,
+.site-logo:visited,
+.site-logo:hover {
+    color: black;
+    text-decoration: none;
+}
+
 .header-search button, .header-ask button, .ask-question button {
     border: 2px solid black;
     background: rgb(3, 193, 3);
@@ -66,6 +73,9 @@ main {
 
 .question-body {
     min-width: 0;
+    overflow-wrap: anywhere;
+    display: flex;
+    flex-direction: column;
 }
 
 /* 
@@ -104,6 +114,10 @@ footer {
     display: flex;
     flex-direction: column;
     gap: 15px;
+    width: 100%;
+    max-width: 590px;
+    margin: 0 auto;
+    min-height: 350px
 }
 
 .questions {
@@ -112,6 +126,9 @@ footer {
     align-items: center;
     margin-bottom: 15px;
     gap: 40px;
+    max-width: 590px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .question-card {
@@ -119,8 +136,8 @@ footer {
     gap: 30px;
     border: 2px solid black;
     border-radius: 15px;
+    width: 100%;
     max-width: 590px;
-    max-height: 160px;
     padding: 10px;
 }
 
@@ -175,11 +192,20 @@ footer {
 
 .pagination {
     padding-top: 12px;
+    width: 100%;
+    max-width: 590px;
+    margin: 0 auto;
 }
 
 /* 
         FOR PAGE ASK.HTML
 */
+
+.ask-page {
+    width: 100%;
+    max-width: 450px;
+    margin: 0 auto;
+}
 
 .form-error {
     display: block;
@@ -197,7 +223,7 @@ footer {
 
 .form-hint {
     display: block;
-    margin-left: 150px;
+    margin-left: 0;
     margin-bottom: 30px;
     font-size: 13px;
     color: gray;
@@ -234,7 +260,8 @@ footer {
 */
 
 .main-question {
-    width: 590px;
+    width: 100%;
+    max-width: 590px;
     display: flex;
     gap: 50px;
     border-bottom: #000000 solid 3px;
@@ -243,7 +270,7 @@ footer {
 .left-part-of-main-question {
     display: flex;
     flex-direction: column;
-    gap: 70px;
+    gap: 15px;
     align-items:flex-start;
 }
 
@@ -266,6 +293,7 @@ footer {
 
 .correctness {
     padding-left: 30px;
+    margin-top: auto;
 }
 
 .answer-time {
@@ -276,10 +304,14 @@ footer {
     display: flex;
     flex-direction: column;
     gap: 10px;
+    width: 100%;
+    max-width: 590px;
+    margin: 0 auto;
 }
 
 .question-cards {
-    width: 590px;
+    width: 100%;
+    max-width: 590px;   
     display: flex;
     flex-direction: column;
     gap: 15px;
@@ -288,7 +320,8 @@ footer {
 }
 
 .enter-answer {
-    width: 590px;
+    width: 100%;
+    max-width: 590px;
     border: #000000 3px solid;
     height: 120px;
 }
@@ -317,6 +350,9 @@ footer {
     display: flex;
     flex-direction: column;
     gap: 15px;
+    width: 100%;
+    max-width: 450px;
+    margin: 0 auto;
 }
 
 .rows {
@@ -488,7 +524,6 @@ footer {
         box-sizing: border-box;
     }
 
-    .form-hint,
     .field-error {
         margin-left: 0;
     }
@@ -510,7 +545,7 @@ footer {
         max-width: 100%;
         box-sizing: border-box;
     }
-    
+
     .correctness {
     padding-left: 0;
     }
