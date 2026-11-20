@@ -16,7 +16,10 @@ from dotenv import load_dotenv
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-load_dotenv(BASE_DIR / '.env')
+
+if "DB_HOST" not in os.environ:
+    load_dotenv(BASE_DIR / ".env.local")
+
 SECRET_KEY = os.environ['SECRET_KEY']
 
 # Quick-start development settings - unsuitable for production
@@ -78,9 +81,13 @@ WSGI_APPLICATION = 'app.wsgi.application'
 # https://docs.djangoproject.com/en/6.1/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+    "default": {
+        "ENGINE": "django.db.backends.postgresql",
+        "NAME": os.environ["POSTGRES_DB"],
+        "USER": os.environ["POSTGRES_USER"],
+        "PASSWORD": os.environ["POSTGRES_PASSWORD"],
+        "HOST": os.environ["DB_HOST"],
+        "PORT": os.environ["DB_PORT"],
     }
 }
 
@@ -107,7 +114,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/6.1/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'ru-ru'
 
 TIME_ZONE = 'UTC'
 
@@ -133,3 +140,20 @@ MAILERS = {
         'BACKEND': 'django.core.mail.backends.console.EmailBackend',
     },
 }
+
+
+if DEBUG:
+    INSTALLED_APPS += ["debug_toolbar"]
+
+    MIDDLEWARE.insert(
+        0,
+        "debug_toolbar.middleware.DebugToolbarMiddleware"
+    )
+
+    INTERNAL_IPS = ["127.0.0.1"]
+
+    if os.getenv("DB_HOST") == "db":
+        DEBUG_TOOLBAR_CONFIG = {
+            "SHOW_TOOLBAR_CALLBACK":
+                "debug_toolbar.middleware.show_toolbar_with_docker"
+        }

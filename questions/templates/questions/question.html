@@ -6,7 +6,7 @@
             <div class="main-question">
                 <div class="left-part-of-main-question">
                     <img src="{% static 'img/avatar.png' %}" alt="avatar">
-                    <div class="rating rating-{{ question.rating_state}}">
+                    <div class="rating">
                         <span class="rating-value">{{question.rating}}</span>
                         <div class="arrows">
                             <span class="like-arrow">↑</span>
@@ -19,14 +19,13 @@
                     <span>{{ question.text }}</span>
                     <div class="main-question-meta">
                         <span>Answers: {{ question.answers_count }}</span>
-                        <span>{{ question.time }}</span>
+                        <span>{{ question.created_at|timesince }} назад</span>
                     </div>
                     <p class="question-tags">
                         Tags:
-                        {% for tag in question.tags %}
-                            <a href="{% url 'tag' tag %}">{{ tag }}</a>
+                        {% for tag in question.tags.all %}
+                            <a href="{% url 'tag' tag.slug %}">{{ tag.name }}</a>
                         {% endfor %}
-                    </p>
                     </p>
                 </div>
             </div>
