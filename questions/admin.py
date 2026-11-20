@@ -14,7 +14,7 @@ class QuestionAdmin(admin.ModelAdmin):
     search_fields = ("title", "text", "author__username")
     list_filter = ("created_at",)
     list_select_related = ("author",)
-    raw_id_fields = ("author",)
+    raw_id_fields = ("author","tags")
     inlines = (AnswerInline,)
 
 

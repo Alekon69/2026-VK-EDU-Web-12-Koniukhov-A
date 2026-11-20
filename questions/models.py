@@ -42,6 +42,9 @@ class QuestionManager(models.Manager):
             "-id"
         )
 
+    def by_tag(self, tag_slug):
+        return self.newest().filter(tags__slug=tag_slug)
+
 
 
 class Question(models.Model):
