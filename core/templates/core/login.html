@@ -1,26 +1,47 @@
 {% extends 'base.html' %}
 
 {% block content %}
+<div class="login-page">
+    <h2>Log In</h2>
 
-        <div class="login-page">
-            <h2>Log In</h2>
-            <span class="form-error">Sorry, wrong password!</span>
-            <div class="rows">
-                <span class="form-label">Login</span>
-                <span class="login-border">Enter your login here</span>
+    <form method="post" action="{% url 'login' %}">
+        {% csrf_token %}
+
+        <input type="hidden" name="next" value="{{ next }}">
+
+        {% if form.non_field_errors %}
+            <div class="form-error">
+                {{ form.non_field_errors }}
             </div>
-            <span class="form-hint">
-                Enter the login used during registration
-            </span>
-            <div class="rows">
-                <span class="form-label">Password</span>
-                <span class="login-border">*************</span>
-            </div>
-            <span class="field-error">
-                Incorrect password
-            </span>
-            <button class="login-button">Log in!</button>
-            <a href="{% url 'signup' %}">create new account</a>
+        {% endif %}
+
+        <div class="rows">
+            <label class="form-label" for="{{ form.username.id_for_label }}">
+                Login
+            </label>
+            {{ form.username }}
         </div>
-    
+
+        {% for error in form.username.errors %}
+            <div class="field-error">{{ error }}</div>
+        {% endfor %}
+
+        <div class="rows">
+            <label class="form-label" for="{{ form.password.id_for_label }}">
+                Password
+            </label>
+            {{ form.password }}
+        </div>
+
+        {% for error in form.password.errors %}
+            <div class="field-error">{{ error }}</div>
+        {% endfor %}
+
+        <button class="login-button" type="submit">
+            Log in!
+        </button>
+    </form>
+
+    <a href="{% url 'signup' %}">create new account</a>
+</div>
 {% endblock %}

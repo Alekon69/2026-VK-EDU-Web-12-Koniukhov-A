@@ -1,22 +1,73 @@
+
 {% load static %}
 
-<div class="question-card">
-                    <div class="question-left">
-                        <img class="question-avatar" src="{% static 'img/avatar.png' %}" alt="Аватар">
-                        <div class="rating rating-{{answer.rating_state}}">
-                        <span class="rating-value">{{answer.rating}}</span>
-                        <div class="arrows">
-                            <span class="like-arrow">↑</span>
-                            <span class="dislike-arrow">↓</span>
+<div class="question-card"
+    id="answer-{{ answer.id }}" 
+     data-vote-url="{% url 'vote_answer' answer.id %}"
+     data-csrf-token="{{ csrf_token }}">
+
+    <div class="question-left">
+        
+{% if answer.author.profile.avatar %}
+    <img
+        class="question-avatar"
+        src="{{ answer.author.profile.avatar.url }}"
+        alt="Аватар автора ответа"
+    >
+{% else %}
+    <img
+        class="question-avatar"
+        src="{% static 'img/avatar.png' %}"
+        alt="Аватар"
+    >
+{% endif %}
+
+
+        
+        <div class="rating {% if answer.user_vote == 1 %}rating-liked{% elif answer.user_vote == -1 %}rating-disliked{% endif %}">
+
+            <span class="rating-value">{{ answer.rating }}</span>
+                        <div class="arrows"
+                            {% if not request.user.is_authenticated %}
+                                title="Войдите в аккаунт, чтобы голосовать"
+                            {% endif %}>
+
+                            <button type="button"
+                                    class="like-arrow"
+                                    {% if not request.user.is_authenticated %}disabled{% endif %}>
+                                ↑
+                            </button>
+
+                            <button type="button"
+                                    class="dislike-arrow"
+                                    {% if not request.user.is_authenticated %}disabled{% endif %}>
+                                ↓
+                            </button>
                         </div>
-                    </div>
-                    </div>
-                    <div class="question-body">
-                        <p>{{answer.text}}</p>
-                        <div class="correctness">
-                            <input type="checkbox" id="checkLabel{{answer.id}}" class="check" {% if answer.is_correct %}checked{% endif %}>
-                            <label for="checkLabel{{answer.id}}">Correct!</label>
-                        <span class="answer-time">{{answer.time}}</span>
-                        </div>
-                    </div>
-                </div>
+        </div>
+    </div>
+
+    
+    <div class="question-body">
+        <p>{{ answer.text }}</p>
+
+        <div class="correctness">
+            <input
+                type="checkbox"
+                class="check"
+                id="correct-{{ answer.id }}"
+                data-correct-url="{% url 'toggle_correct_answer' answer.id %}"
+                data-csrf-token="{{ csrf_token }}"
+                data-question-id="{{ question.id }}"
+                {% if answer.is_correct %}checked{% endif %}
+                {% if not request.user.is_authenticated or request.user.id != question.author_id %}disabled{% endif %}
+            >
+
+            <label for="correct-{{ answer.id }}">Correct!</label>
+
+            <span class="answer-time">
+                {{ answer.created_at|timesince }} назад
+            </span>
+        </div>
+    </div>
+</div>

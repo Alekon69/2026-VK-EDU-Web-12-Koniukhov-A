@@ -1,45 +1,39 @@
+
 {% extends 'base.html' %}
 
 {% block content %}
+<div class="signup-page">
+    <h2>Registration</h2>
 
-        <div class="signup-page">
-            <h2>Registration</h2>
-            <span class="form-error">Sorry, this email address already registred</span>
-            <div class="rows">
-                <span class="form-label">Login</span>
-                <span class="login-border">user_name</span>
+    <form method="post" action="{% url 'signup' %}">
+        {% csrf_token %}
+
+        {% if form.non_field_errors %}
+            <div class="form-error">
+                {{ form.non_field_errors }}
             </div>
+        {% endif %}
+
+        {% for field in form %}
             <div class="rows">
-                <span class="form-label">Email</span>
-                <span class="login-border">user_email</span>
+                <label class="form-label"
+                       for="{{ field.id_for_label }}">
+                    {{ field.label }}
+                </label>
+
+                {{ field }}
             </div>
-            <span class="field-error">
-                Invalid email
-            </span>
-            <div class="rows">
-                <span class="form-label">NickName</span>
-                <span class="login-border">user_nick</span>
-            </div>
-            <div class="rows" style="margin-top: 10px;">
-                <span class="form-label">Password</span>
-                <span class="login-border">*************</span>
-            </div>
-            <span class="form-hint">
-                Minimum 8 characters
-            </span>
-            <div class="rows">
-                <span class="form-label">Repeat password</span>
-                <span class="login-border">*************</span>
-            </div>
-            <div class="rows">
-                <span class="form-label">Upload avatar</span>
-                <div class="choose-avatar">
-                    <span class="avatar-path">c:\avatar.jpg</span>
-                    <button class="choose-button">choose</button>
+
+            {% for error in field.errors %}
+                <div class="field-error">
+                    {{ error }}
                 </div>
-            </div>
-            <button class="register-button">Register!</button>
-        </div>
+            {% endfor %}
+        {% endfor %}
 
+        <button class="register-button" type="submit">
+            Register!
+        </button>
+    </form>
+</div>
 {% endblock %}
-    
