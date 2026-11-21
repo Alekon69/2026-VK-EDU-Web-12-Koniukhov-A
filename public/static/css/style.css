@@ -50,6 +50,14 @@ input[type='search']:focus, input[type='search']:focus-visible {
     border: 2px solid rgb(154, 150, 190);
 }
 
+.header-ask span[title] {
+    display: inline-block;
+    cursor: not-allowed;
+}
+
+.header-ask button:disabled {
+    pointer-events: none;
+}
 
 .user-authorized {
     display: flex;
@@ -186,6 +194,27 @@ footer {
     padding-right: 3px;
 }
 
+
+.arrows button {
+    border: none;
+    background: transparent;
+    padding: 0;
+    font: inherit;
+    color: inherit;
+    cursor: pointer;
+}
+
+.arrows button:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+}
+
+
+.like-arrow,
+.dislike-arrow {
+    cursor: pointer;
+}
+
 .rating-liked .like-arrow {
     color: green;
     font-weight:bold;
@@ -233,6 +262,10 @@ footer {
     margin-bottom: 30px;
     font-size: 13px;
     color: gray;
+}
+
+.ask-page .form-hint {
+    margin-left: 150px;
 }
 
 .title-of-new-question, .text-of-new-question, .tags-of-new-question {
@@ -361,18 +394,34 @@ footer {
     margin: 0 auto;
 }
 
+.login-page form,
+.signup-page form,
+.profile-page form,
+.ask-page form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
 .rows {
     display: flex;
 }
 
 .form-label {
     width: 150px;
+    flex-shrink: 0;
 }
 
 .login-border {
     border: #000000 3px solid;
     width: 220px;
     padding-left: 3px;
+}
+
+.profile-page input[type="file"] {
+    flex: 1;
+    min-width: 0;
+    max-width: 100%;
 }
 
 .login-button, .register-button, .save-button {
@@ -406,6 +455,20 @@ footer {
 .profile-avatar {
     width: 120px;
     height: 120px;
+}
+
+.logout-form {
+    display: inline;
+}
+
+.logout-button {
+    background: none;
+    border: none;
+    padding: 0;
+    color: #0d6efd;
+    text-decoration: underline;
+    cursor: pointer;
+    font: inherit;
 }
 
 /* Планшет */ 
@@ -514,6 +577,10 @@ footer {
         flex-direction: column;
         width: 100%;
         gap: 5px;
+    }
+
+    .ask-page .form-hint {
+    margin-left: 0;
     }
 
     .form-label {

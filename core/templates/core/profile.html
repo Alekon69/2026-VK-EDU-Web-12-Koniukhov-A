@@ -1,40 +1,55 @@
+
 {% extends 'base.html' %}
 {% load static %}
 
 {% block content %}
 
-        <div class="profile-page">
-            <h2>Settings: user_name</h2>
-            <span class="form-error">
-                Profile was not saved. Check the fields below.
-            </span>
+<div class="profile-page">
+    <h2>Settings: {{ request.user.username }}</h2>
+
+    <form method="post" action="{% url 'profile' %}" enctype="multipart/form-data">
+        {% csrf_token %}
+
+        {% if form.non_field_errors %}
+            <div class="form-error">
+                {{ form.non_field_errors }}
+            </div>
+        {% endif %}
+
+        {% for field in form %}
             <div class="rows">
-                <span class="form-label">Login</span>
-                <span class="login-border">user_name</span>
+                <label class="form-label"
+                       for="{{ field.id_for_label }}">
+                    {{ field.label }}
+                </label>
+
+                {{ field }}
             </div>
-            <div class="rows">
-                <span class="form-label">Email</span>
-                <span class="login-border">user_email</span>
-            </div>
-            <span class="field-error">
-                Invalid email
-            </span>
-            <div class="rows">
-                <span class="form-label">NickName</span>
-                <span class="login-border">user_nick</span>
-            </div>
-            <div class="rows">
-                <span class="form-label">Upload avatar</span>
-                <img class="profile-avatar" src="{% static 'img/avatar.png' %}" alt="Аватар">
-            </div>
-            <span class="form-hint">
-                JPG or PNG, maximum 5 MB
-            </span> 
-            <div class="choose-avatar" style="width: 200px; margin-left: 150px;">
-                <span class="avatar-path">c:\avatar.jpg</span>
-                <button class="choose-button">choose</button>
-            </div>
-            <button class="save-button" style="margin-top: 25px;">Save</button>
+
+            {% for error in field.errors %}
+                <div class="field-error">
+                    {{ error }}
+                </div>
+            {% endfor %}
+        {% endfor %}
+        <div class="rows">
+            <span class="form-label" aria-hidden="true"></span>
+
+            {% if request.user.profile.avatar %}
+                <img class="profile-avatar"
+                    src="{{ request.user.profile.avatar.url }}"
+                    alt="Аватар">
+            {% else %}
+                <img class="profile-avatar"
+                    src="{% static 'img/avatar.png' %}"
+                    alt="Аватар">
+            {% endif %}
         </div>
+
+        <button class="save-button" type="submit">
+            Save
+        </button>
+    </form>
+</div>
 
 {% endblock %}

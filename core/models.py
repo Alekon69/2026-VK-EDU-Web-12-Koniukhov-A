@@ -1,5 +1,11 @@
 from django.conf import settings
 from django.db import models
+import uuid
+from pathlib import Path
+
+def avatar_upload_path(instance, filename):
+    extension = Path(filename).suffix.lower()
+    return f"avatars/{uuid.uuid4().hex}{extension}"
 
 
 class Profile(models.Model):
@@ -11,7 +17,7 @@ class Profile(models.Model):
     )
 
     avatar = models.ImageField(
-        upload_to="avatars/",
+        upload_to=avatar_upload_path,
         blank=True,
         verbose_name="Аватар"
     )
