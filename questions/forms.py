@@ -157,11 +157,11 @@ class CorrectAnswerForm(forms.Form):
 
         question_id = cleaned_data.get("question_id")
 
-        if question_id is not None:
-            if question_id != self.answer.question_id:
-                raise forms.ValidationError(
-                    "Ответ не принадлежит указанному вопросу"
-                )
+        if question_id is not None and question_id != self.answer.question_id:
+            self.add_error(
+                "question_id",
+                "Ответ не принадлежит указанному вопросу"
+            )
 
         if self.answer.question.author_id != self.user.id:
             raise forms.ValidationError(

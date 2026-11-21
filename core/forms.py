@@ -94,7 +94,8 @@ class ProfileEditForm(forms.ModelForm):
         avatar = self.cleaned_data.get("avatar")
 
         if avatar:
-            user.profile.avatar = avatar
-            user.profile.save()
+            profile, created = Profile.objects.get_or_create(user=user)
+            profile.avatar = avatar
+            profile.save()
 
         return user

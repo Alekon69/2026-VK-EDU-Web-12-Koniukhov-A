@@ -107,7 +107,7 @@ class Command(BaseCommand):
                 question_id=random.choice(questions),
                 author_id=random.choice(users),
                 text=random.choice(texts),
-                is_correct=random.random() < 0.05
+                is_correct=False
             ),
             collect_ids=True
         )
